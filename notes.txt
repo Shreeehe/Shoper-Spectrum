@@ -1,0 +1,131 @@
+🔢 1️⃣ Load & Preprocess RFM Data
+loaded customer transaction data.
+
+calculated sRFM scores:
+
+Recency = days since last purchase.
+
+Frequency = number of purchases.
+
+Monetary = total spent.
+
+📏 2️⃣ Scaled RFM Scores
+used MinMaxScaler to normalize Recency, Frequency, and Monetary.
+
+important for fair clustering.
+
+🧠 3️⃣ Applied KMeans Clustering
+tried different values of K.
+
+found best using Elbow Method & Silhouette Score.
+
+final model: KMeans with 4 clusters.
+
+🏷 4️⃣ Clustered Customers
+used fitted KMeans to assign each customer a Cluster Label.
+
+added it to the main RFM DataFrame.
+
+📊 5️⃣ Interpreted Clusters
+analyzed the cluster centers.
+
+labeled them manually as:
+
+High-Value
+
+Regular
+
+At-Risk
+
+Occasional
+
+🥧 6️⃣ Visualized Segments
+created a colorful Pie Chart to show % of customers in each segment.
+
+very helpful for business insights 👀
+
+💾 7️⃣ Saved Best Model
+saved trained KMeans model as .pkl using joblib.dump().
+
+this lets us use it in Streamlit or other apps.
+
+
+🧠 RFM = Recency, Frequency, Monetary
+Metric	What it means 💭	How we calculate 🧮
+Recency	How recently a customer bought something	Days between last purchase and today/snapshot
+Frequency	How often a customer purchased	Number of unique invoices (orders)
+Monetary	How much money a customer spent in total 💸	Sum of all (Quantity × UnitPrice)
+
+k means
+What You Should Cover for K-Means Clustering Seminar:
+✨ 1. What is Clustering?
+Grouping similar data points together ✨
+
+Unsupervised Learning (no labels)
+
+Like putting friends into different groups based on vibe 💕
+
+✨ 2. What is K-Means?
+“K” = number of clusters
+
+Algorithm:
+
+Choose k random centroids
+
+Assign points to nearest centroid
+
+Move centroids to center of assigned points
+
+Repeat till stable
+
+🎯 Goal: minimize inertia (distance within clusters)
+
+✨ 3. How to choose K?
+Use the Elbow Method
+
+Plot k vs inertia (distortion)
+
+Look for the bend/elbow
+
+After elbow = diminishing returns 😐
+
+(you can even show the graph 📈 you created)
+
+✨ 4. Real Example - RFM Clustering (your project! 💕)
+Feature	Meaning
+Recency	Days since last purchase
+Frequency	How many purchases
+Monetary	How much spent ₹
+
+📌 You used KMeans to segment customers into:
+
+🟢 High-Value
+
+🔴 At-Risk
+
+💛 Occasional
+
+🧡 Regular
+
+✨ 5. How You Visualize It
+2D scatter plot (Recency vs Monetary)
+
+3D cluster plot (RFM together)
+
+Pie chart of segment distribution
+
+✨ 6. Why it Matters?
+Target right people 💌
+
+Offer discounts to at-risk 🧨
+
+Retain high-value 💎
+
+Inventory planning 📦
+
+💖 Bonus Lines if Nervous:
+“Even though it’s unsupervised, K-Means finds surprising structure in data.”
+
+“Elbow method helped us find that 4 clusters give balance of simplicity and insight.”
+
+“It’s a simple yet powerful tool for segmentation.”
